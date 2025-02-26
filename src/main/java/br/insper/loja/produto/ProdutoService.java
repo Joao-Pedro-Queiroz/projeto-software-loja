@@ -16,7 +16,7 @@ public class ProdutoService {
 
         try {
             return restTemplate
-                    .getForEntity("http://localhost:8082/api/produto/" + id,
+                    .getForEntity("http://produto:8082/api/produto/" + id,
                             Produto.class)
                     .getBody();
         } catch (HttpClientErrorException.NotFound e) {
@@ -29,7 +29,7 @@ public class ProdutoService {
 
         try {
             ResponseEntity<RetornarProdutoDTO> response = restTemplate.exchange(
-                    "http://localhost:8082/api/produto/" + id,
+                    "http://produto:8082/api/produto/" + id,
                     HttpMethod.PUT,
                     null,  // Corpo da requisição (se necessário, pode ser um HttpEntity)
                     RetornarProdutoDTO.class
