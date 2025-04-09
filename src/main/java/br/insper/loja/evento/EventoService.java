@@ -18,9 +18,10 @@ public class EventoService {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", token);
 
-        HttpEntity<String> entity = new HttpEntity<>(headers);
+        HttpEntity<Evento> entity = new HttpEntity<>(evento, headers);
 
         try {
             ResponseEntity<Evento> response = restTemplate.exchange(
