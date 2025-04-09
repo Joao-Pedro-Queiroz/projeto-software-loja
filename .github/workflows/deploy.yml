@@ -49,4 +49,4 @@ jobs:
         script: |
           docker stop loja
           docker rm --force loja
-          docker run -d -p 8081:8081 -e string_conexao_MongoDB_loja=${{ secrets.string_conexao_MongoDB_loja }} --name loja --network=rede jpqv/loja-ci:${{ github.sha }}
+          docker run -d -p 8081:8081 -e REDIS_HOST=redis -e string_conexao_MongoDB_loja=${{ secrets.string_conexao_MongoDB_loja }} --name loja --network=rede jpqv/loja-ci:${{ github.sha }}
