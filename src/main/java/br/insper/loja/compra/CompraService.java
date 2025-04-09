@@ -39,7 +39,7 @@ public class CompraService {
         compra.setNome(usuario.getNome());
         compra.setDataCompra(LocalDateTime.now());
 
-        eventoService.salvarEvento(usuario.getEmail(), "Compra realizada");
+        eventoService.salvarEvento(usuario.getEmail(), "Compra realizada", token);
         return compraRepository.save(compra);
     }
 
