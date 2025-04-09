@@ -25,8 +25,8 @@ public class CompraService {
     @Autowired
     private ProdutoService produtoService;
 
-    public Compra salvarCompra(Compra compra) {
-        Usuario usuario = usuarioService.getUsuario(compra.getUsuario());
+    public Compra salvarCompra(Compra compra, String token) {
+        Usuario usuario = usuarioService.getUsuario(compra.getUsuario(), token);
 
         for (String idProduto : compra.getProdutos()) {
             produtoService.getProduto(idProduto);
